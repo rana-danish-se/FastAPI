@@ -10,6 +10,7 @@ class UserCreate(BaseModel):
 class User(UserCreate):
     id: int
     is_active: bool = True
+    model_config = {"from_attributes": True}
 
 
 class UserOut(BaseModel):
@@ -17,3 +18,4 @@ class UserOut(BaseModel):
     username: str
     email: EmailStr
     is_active: bool = True
+    model_config = {"from_attributes": True}

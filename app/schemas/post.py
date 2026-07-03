@@ -1,6 +1,5 @@
 from datetime import datetime
 from typing import List, Optional
-
 from pydantic import BaseModel, Field
 
 from .user import UserOut
@@ -14,6 +13,7 @@ class Comment(CommentCreate):
     id: int
     author: UserOut
     created_at: datetime
+    model_config = {"from_attributes": True}
 
 
 class PostCreate(BaseModel):
@@ -28,3 +28,4 @@ class Post(PostCreate):
     author: UserOut
     created_at: datetime
     comments: List[Comment] = []
+    model_config = {"from_attributes": True}
